@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Http\Request;
 use Validator;
-use Auth;
 
 class LoginController extends Controller
 {
@@ -17,13 +17,13 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return response()->json([
                 'data' => $validator->errors(),
             ], 500);
         }
 
-        if (Auth::attempt($request->all(),true)) {
+        if (Auth::attempt($request->all(), true)) {
             $user = Auth::user();
             $user->generateToken();
 
@@ -33,5 +33,17 @@ class LoginController extends Controller
         }
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+    public function logout(Request $request)
+    {
+        $user = Auth::guard('api')->user();
+
+        if ($user) {
+            $user->api_token = null;
+            $user->save();
+        }
+
+        return response()->json(['data' => 'User logged out.'], 200);
     }
 }
