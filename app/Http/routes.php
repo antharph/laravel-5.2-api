@@ -21,4 +21,10 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('cars', 'Api\CarsController@store');
     Route::put('cars/{car}', 'Api\CarsController@update');
     Route::delete('cars/{car}', 'Api\CarsController@delete');
+
+    Route::get('users', 'Api\UsersController@index');
+    Route::get('users/{user}', 'Api\UsersController@show');
+    Route::post('users', 'Api\UsersController@store');
+    Route::put('users/{user}', 'Api\UsersController@update');
+    Route::delete('users/{user}', 'Api\UsersController@delete');
 });
