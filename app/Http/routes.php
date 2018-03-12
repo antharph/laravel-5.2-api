@@ -15,10 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'api','middleware' => 'auth:api'], function () {
-
+Route::group(['prefix' => 'api'],function(){
     Route::post('register', 'Api\RegisterController@register');
     Route::post('login', 'Api\LoginController@login');
+    Route::get('logout', 'Api\LoginController@logout');
+});
+
+Route::group(['prefix' => 'api','middleware' => 'auth:api'], function () {
 
     Route::get('users', 'Api\UsersController@index');
     Route::get('users/{user}', 'Api\UsersController@show');
