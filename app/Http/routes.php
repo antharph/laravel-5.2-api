@@ -40,3 +40,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::delete('carbrands/{carBrand}', 'Api\CarBrandsController@delete');
 
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
