@@ -1,3 +1,16 @@
+#Laravel 5.2 API
+* Requires php version 7 and up
+  * Some functions doesn't work with 5.6
+* Registration via API
+* Login & Logout via API
+
+For API requests, add Accept in request header
+Accept: application/json
+
+To access endpoints other than login and registration, add these parameters to header
+Accept: application/json
+Authorization: Bearer <api_token>
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
