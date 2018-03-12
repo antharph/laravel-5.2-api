@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'api'], function () {
+
+    Route::post('register', 'Auth\RegisterController@register');
+
     Route::get('users', 'Api\UsersController@index');
     Route::get('users/{user}', 'Api\UsersController@show');
     Route::post('users', 'Api\UsersController@store');

@@ -8,6 +8,11 @@ class Car extends Model
 {
     protected $guarded = [];
 
+    public function car_brand()
+    {
+        return $this->belongsTo('App\CarBrand','car_brand_id');
+    }
+
     public function services()
     {
         return $this->belongsToMany('App\Service','service_logs')
