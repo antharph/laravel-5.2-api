@@ -93,6 +93,10 @@ class AddInitialTables2 extends Migration
     public function down()
     {
         Schema::drop('services');
+        Schema::drop('service_logs');
+        Schema::drop('expenses');
+        Schema::drop('car_expenses');
+        Schema::drop('service_reminders');
         
     }
 }

@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ServiceReminder extends Model
+class ExpenseReminder extends Model
 {
-    protected $table = 'service_reminders';
+    protected $table = 'expense_reminders';
     protected $guarded = [];
 }

@@ -12,4 +12,9 @@ class Expense extends Model
     {
         return $this->belongsToMany('App\Car','car_expenses');
     }
+
+    public function reminders()
+    {
+        return $this->belongsToMany('App\ExpenseReminder','expense_reminders');
+    }
 }

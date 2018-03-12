@@ -22,4 +22,9 @@ class Car extends Model
     {
         return $this->belongsToMany('App\ServiceReminder','service_reminders');
     }
+
+    public function expense_reminders()
+    {
+        return $this->belongsToMany('App\ExpenseReminder','expense_reminders');
+    }
 }

@@ -13,7 +13,7 @@ class Service extends Model
         return $this->belongsToMany('App\Car','service_logs');
     }
 
-    public function service_reminders()
+    public function reminders()
     {
         return $this->belongsToMany('App\ServiceReminder','service_reminders');
     }
