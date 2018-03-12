@@ -1,4 +1,4 @@
-#Laravel 5.2 API
+# Laravel 5.2 API
 * Requires php version 7 and up
   * Some functions doesn't work with 5.6
 * Registration via API
