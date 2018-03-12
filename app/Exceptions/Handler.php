@@ -46,15 +46,15 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
 
-        $messaage = "Endpoint not available";
+        $message = "Endpoint not available";
         if($request->wantsJson()){
 
             if($exception instanceof ModelNotFoundException){
-                $messaage = 'Resource not found';
+                $message = 'Resource not found';
             }
 
             return response()->json([
-                'data' => $messaage,
+                'data' => $message,
             ], 404);
 
         }
