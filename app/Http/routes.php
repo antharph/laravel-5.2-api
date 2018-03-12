@@ -16,15 +16,24 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'api'], function () {
+    Route::get('users', 'Api\UsersController@index');
+    Route::get('users/{user}', 'Api\UsersController@show');
+    Route::post('users', 'Api\UsersController@store');
+    //add hidden field _method=PUT but POST request
+    Route::put('users/{user}', 'Api\UsersController@update');
+    //add hidden field _method=DELETE but POST request
+    Route::delete('users/{user}', 'Api\UsersController@delete');
+
     Route::get('cars', 'Api\CarsController@index');
     Route::get('cars/{car}', 'Api\CarsController@show');
     Route::post('cars', 'Api\CarsController@store');
     Route::put('cars/{car}', 'Api\CarsController@update');
     Route::delete('cars/{car}', 'Api\CarsController@delete');
 
-    Route::get('users', 'Api\UsersController@index');
-    Route::get('users/{user}', 'Api\UsersController@show');
-    Route::post('users', 'Api\UsersController@store');
-    Route::put('users/{user}', 'Api\UsersController@update');
-    Route::delete('users/{user}', 'Api\UsersController@delete');
+    Route::get('carbrands', 'Api\CarBrandsController@index');
+    Route::get('carbrands/{carBrand}', 'Api\CarBrandsController@show');
+    Route::post('carbrands', 'Api\CarBrandsController@store');
+    Route::put('carbrands/{carBrand}', 'Api\CarBrandsController@update');
+    Route::delete('carbrands/{carBrand}', 'Api\CarBrandsController@delete');
+
 });

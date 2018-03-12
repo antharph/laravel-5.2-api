@@ -4,18 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Car extends Model
+class Service extends Model
 {
     protected $guarded = [];
 
-    public function services()
+    public function cars()
     {
-        return $this->belongsToMany('App\Service','service_logs');
-    }
-
-    public function expenses()
-    {
-        return $this->belongsToMany('App\Expense','car_expenses');
+        return $this->belongsToMany('App\Car','service_logs');
     }
 
     public function service_reminders()
